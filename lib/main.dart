@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'profile_image.dart';
-import 'profile_info.dart';
 
 void main() {
   runApp(
@@ -23,15 +22,11 @@ class ProfileStack extends StatelessWidget {
     return const SizedBox(
       width: 250,
       height: 300,
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          ProfileImage(),
-          Positioned(
-            bottom: 10,
-            child: ProfileInfo(),
-          ),
-        ],
+      child: ProfileImage(
+        circleImageTop: 150, // Adjust these values as needed
+        circleImageRight: 20,
+        circleImageBottom: 0,
+        circleImageLeft: 0,
       ),
     );
   }

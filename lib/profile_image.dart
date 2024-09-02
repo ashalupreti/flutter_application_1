@@ -2,13 +2,25 @@ import 'package:flutter/material.dart';
 import 'active_status_button.dart';
 
 class ProfileImage extends StatelessWidget {
-  const ProfileImage({super.key});
+  final double circleImageTop;
+  final double circleImageRight;
+  final double circleImageBottom;
+  final double circleImageLeft;
+
+  const ProfileImage({
+    super.key,
+    this.circleImageTop = 100,
+    this.circleImageRight = 10,
+    this.circleImageBottom = 0,
+    this.circleImageLeft = 100,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       alignment: Alignment.center,
       children: [
+        // Main Profile Image with border
         Container(
           width: 210,
           height: 210,
@@ -29,10 +41,13 @@ class ProfileImage extends StatelessWidget {
             ),
           ),
         ),
-        const Positioned(
-          bottom: 0,
-          right: 0,
-          child: Stack(
+        // Small Circular Image with active status button, positioned according to parameters
+        Positioned(
+          top: circleImageTop,
+          right: circleImageRight,
+          bottom: circleImageBottom,
+          left: circleImageLeft,
+          child: const Stack(
             clipBehavior: Clip.none,
             children: [
               CircleImage(),
